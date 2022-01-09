@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <meta http-equiv="REFRESH" content="0;url={% url "index" %}">
+    {% else %}
+        <h1>Login !</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            {% if form.errors %}
+                {% for error in form.non_field_errors %}
+                    <h2 style="color: red">Erreur génétique ! {{ error }}</h2>
+                {% endfor %}
+            {% endif %}
+            {% for field in form %}
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        <h2 style="color: red">{{ error }}</h2>
+                    {% endfor %}
+                {% endif %}
+                <p>
+                    <span>{{ field.label }}</span>
+                    {{ field }}
+                </p>
+            {% endfor %}
+            <button type="submit">{%  trans "Login"  %}</button>
+            <a href="{% url "register" %}">
+                {%  trans "You are not register ?"  %}
+            </a>
+        </form>
+    {% endif %}
+{% endblock %}

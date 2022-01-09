@@ -1,0 +1,111 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-10 18:15+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\Polls_and_surveys\settings.py:128
+msgid "English"
+msgstr ""
+
+#: .\Polls_and_surveys\settings.py:129
+msgid "French"
+msgstr ""
+
+#: .\templates\base.html:42 .\templates\poll_create.html:4
+msgid "Create poll"
+msgstr "Créer un sondage"
+
+#: .\templates\base.html:43
+msgid "List of polls"
+msgstr "Liste des sondages"
+
+#: .\templates\base.html:44
+msgid "Logout"
+msgstr "Se déconnecter"
+
+#: .\templates\base.html:47
+msgid "Home"
+msgstr "Accueil"
+
+#: .\templates\index.html:5 .\templates\poll_delete.html:5
+#: .\templates\poll_list.html:5 .\templates\poll_orderBy_user.html:5
+#: .\templates\poll_search.html:5 .\templates\poll_vote.html:5
+#, python-format
+msgid "%(title)s"
+msgstr "%(title)s"
+
+#: .\templates\index.html:12 .\templates\index.html:14
+#: .\templates\poll_list.html:12 .\templates\poll_list.html:14
+#: .\templates\poll_orderBy_user.html:12 .\templates\poll_orderBy_user.html:14
+#: .\templates\poll_search.html:12 .\templates\poll_search.html:14
+msgid "Search"
+msgstr "Rechercher"
+
+#: .\templates\index.html:18
+msgid "Hi visitor!"
+msgstr "Salut visiteur"
+
+#: .\templates\index.html:20
+msgid "Sort by User"
+msgstr "Trier par utilisateur"
+
+#: .\templates\index.html:42 .\templates\poll_orderBy_user.html:28
+#: .\templates\poll_search.html:37
+msgid "Vote"
+msgstr "Voter"
+
+#: .\templates\index.html:45 .\templates\poll_orderBy_user.html:31
+#: .\templates\poll_search.html:40
+msgid "View results"
+msgstr "Voir résultat"
+
+#: .\templates\login.html:26
+msgid "Login"
+msgstr "Se connecter"
+
+#: .\templates\login.html:28
+msgid "You are not register ?"
+msgstr "Vous n'êtes pas inscrit ?"
+
+#: .\templates\poll_create.html:17 .\templates\poll_vote.html:36
+msgid "Submit"
+msgstr "Envoyer"
+
+#: .\templates\poll_delete.html:10
+msgid "Are you sure you want to delete "
+msgstr "Etes vous sûre de vouloir supprimer "
+
+#: .\templates\poll_detail.html:5
+msgid "Poll results"
+msgstr "Résultat du sondage"
+
+#: .\templates\poll_list.html:35
+msgid "Update"
+msgstr "Modifier"
+
+#: .\templates\poll_list.html:38
+msgid "Remove"
+msgstr "Supprimer"
+
+#: .\templates\poll_search.html:17
+msgid "The result of the search :"
+msgstr "Le résultat de la recherche"
+
+#: .\templates\register.html:15
+msgid "Register"
+msgstr "S'enregistrer"

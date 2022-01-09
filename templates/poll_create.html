@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+    <h1>{%  trans "Create poll" %}</h1>
+    {% if user.is_authenticated %}
+        <form action="" method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                {% if field.error %}
+                    <span class="field-error">{{ field.error }}</span>
+                {% endif %}
+                <p>
+                    <span>{{ field.label }}</span>
+                    {{ field }}
+                </p>
+            {% endfor %}
+            <button type="submit" value="Save">{%  trans "Submit" %}</button>
+        </form>
+    {% endif %}
+{% endblock %}

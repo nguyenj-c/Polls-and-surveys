@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+    <h1>
+        {%  blocktrans trimmed %}
+            {{ title }}
+        {% endblocktrans %}
+    </h1>
+    <div class="panel">
+        <h2 class="title">
+            {{ object.Question }}
+        </h2>
+        <form class="form-vote" method="POST" action="{% url "poll_submit_vote" %}">
+            {% csrf_token %}
+            <div class="radio">
+                <input type="hidden" name="id" value="{{ object.pk }}" required>
+                <label>
+                    <input type="radio" name="poll" value="option1" required>
+                    {{ object.option_1 }}
+                </label> &nbsp;
+                <label>
+                    <input type="radio" name="poll" value="option2">
+                    {{ object.option_2 }}
+                </label> &nbsp;
+                <label>
+                    <input type="radio" name="poll" value="option3">
+                    {{ object.option_3 }}
+                </label> &nbsp;
+                <label>
+                    <input type="radio" name="poll" value="option4">
+                    {{ object.option_4 }}
+                </label> &nbsp;
+            </div>
+            <hr />
+            <button type="submit" class="btn btn-info">
+                {% trans "Submit" %}
+            </button>
+        </form>
+    </div>>
+{% endblock %}
