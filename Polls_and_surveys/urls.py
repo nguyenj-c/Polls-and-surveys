@@ -18,12 +18,13 @@ from django.contrib import admin
 from django.urls import path
 from django.views.i18n import JavaScriptCatalog
 
-from app.views import IndexView, QuestionCreateView, QuestionListView, LoginFormView
+from app.views import IndexView, PollsCreateView, PollsListView, LoginFormView, PollsDetailView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index', IndexView.as_view(), name='index'),
-    path('questions', QuestionListView.as_view(), name='question_list'),
-    path('question/create', QuestionCreateView.as_view(), name='question_create'),
+    path('polls', PollsListView.as_view(), name='poll_list'),
+    path('poll/create', PollsCreateView.as_view(), name='poll_create'),
     path('', LoginFormView.as_view(), name='login'),
+    path('polls/<int:pk>', PollsDetailView.as_view(), name='poll_detail'),
 ]

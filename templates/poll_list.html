@@ -8,11 +8,12 @@
     <ul>
     {% for object in object_list %}
             <li>
+                <a href="{% url "poll_detail" object.pk %}">
                     {{ object }}
                 </a>
             </li>
     {% endfor %}
     </ul>
-    <a href="{% url "question_create" %}">Retour</a>
+    <a href="{% url "poll_create" %}">Retour</a>
 </body>
 </html>

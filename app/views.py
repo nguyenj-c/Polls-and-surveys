@@ -11,7 +11,7 @@ from django.views import View
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, FormView
 
 from app.forms.login import LoginForm
-from app.models import Question
+from app.models import Polls, Choice
 
 
 class IndexView(TemplateView):
@@ -23,22 +23,34 @@ class IndexView(TemplateView):
         return result
 
 
-class QuestionCreateView(CreateView):
-    template_name = "question_create.html"
-    model = Question
+class PollsCreateView(CreateView):
+    template_name = "poll_create.html"
+    model = Polls
     fields = ('Sujet', 'Question')
-    success_url = reverse_lazy('question_list')
+    success_url = reverse_lazy('poll_list')
 
 
-class QuestionListView(ListView):
-    template_name = "question_list.html"
-    model = Question
+class PollsListView(ListView):
+    template_name = "poll_list.html"
+    model = Polls
+
+
+class PollsDetailView(LoginRequiredMixin, DetailView):
+    template_name = "poll_detail.html"
+    model = Polls
+
+    def get_context_data(self, **kwargs):
+        result = super().get_context_data(**kwargs)
+        result["polls"] = Polls.objects.filter(
+            poll__pk=self.object.pk
+        )
+        return result
 
 
 class LoginFormView(FormView):
     template_name = 'login.html'
     form_class = LoginForm
-    success_url = "/"
+    success_url = "/poll/create"
 
     def form_valid(self, form):
         username = form.cleaned_data['username']
@@ -51,6 +63,6 @@ class LoginFormView(FormView):
                 f'Hello {user.username}!'
             )
             return super().form_valid(form)
-        #form.add_error(None, "email / mdp invalid")
+
         return super().form_invalid(form)
 
