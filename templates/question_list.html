@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Liste des sondages</title>
+</head>
+<body>
+    <ul>
+    {% for object in object_list %}
+            <li>
+                    {{ object }}
+                </a>
+            </li>
+    {% endfor %}
+    </ul>
+    <a href="{% url "question_create" %}">Retour</a>
+</body>
+</html>
