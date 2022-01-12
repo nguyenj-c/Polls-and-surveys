@@ -11,7 +11,7 @@ from django.views import View
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, FormView
 
 from app.forms.login import LoginForm
-from app.models import Polls, Choice
+from app.models import Polls
 
 
 class IndexView(TemplateView):
@@ -26,7 +26,7 @@ class IndexView(TemplateView):
 class PollsCreateView(CreateView):
     template_name = "poll_create.html"
     model = Polls
-    fields = ('Sujet', 'Question')
+    fields = ('Sujet', 'Question', 'option_1', 'option_2', 'option_3', 'option_4')
     success_url = reverse_lazy('poll_list')
 
 
@@ -41,8 +41,8 @@ class PollsDetailView(LoginRequiredMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         result = super().get_context_data(**kwargs)
-        result["polls"] = Polls.objects.filter(
-            poll__pk=self.object.pk
+        result["sujet"] = Subject.objects.filter(
+            choice__pk=self.object.pk
         )
         return result
 

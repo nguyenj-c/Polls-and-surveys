@@ -5,17 +5,17 @@ from datetime import datetime
 
 
 class Polls(models.Model):
-    Sujet = models.CharField(max_length=200, blank=True, null=True)
+    Sujet = models.CharField(max_length=200, blank=True)
     Question = models.CharField(max_length=200, blank=True, null=True)
+    option_1 = models.CharField(max_length=30,blank=True, null=True)
+    option_2 = models.CharField(max_length=30,blank=True, null=True)
+    option_3 = models.CharField(max_length=30,blank=True, null=True)
+    option_4 = models.CharField(max_length=30,blank=True, null=True)
+    option_1_count = models.IntegerField(default=0)
+    option_2_count = models.IntegerField(default=0)
+    option_3_count = models.IntegerField(default=0)
+    option_4_count = models.IntegerField(default=0)
     date_creation = models.DateTimeField('date creation', default=datetime.now())
 
-    def __str__(self):
-        return self.Sujet or "? (no Sujet) ?"
-
-
-class Choice(models.Model):
-
-    question = models.ForeignKey(Polls, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
-
+    def total(self):
+        return self.option_1_count + self.option_2_count + self.option_3_count + self.option_4_count
