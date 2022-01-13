@@ -2,12 +2,6 @@ from django.contrib import admin
 
 # Register your models here.
 
-from app.models import Polls
+from app.models import Poll
 
-
-class QuestionAdmin(admin.TabularInline):
-    model = Polls
-    extra = 0
-
-
-admin.site.register(Polls)
+admin.site.register(Poll)

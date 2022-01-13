@@ -4,7 +4,7 @@ from datetime import datetime
 # Create your models here.
 
 
-class Polls(models.Model):
+class Poll(models.Model):
     Sujet = models.CharField(max_length=200, blank=True)
     Question = models.CharField(max_length=200, blank=True, null=True)
     option_1 = models.CharField(max_length=30,blank=True, null=True)
@@ -19,3 +19,6 @@ class Polls(models.Model):
 
     def total(self):
         return self.option_1_count + self.option_2_count + self.option_3_count + self.option_4_count
+
+    def __str__(self):
+        return f"{self.Question} / {self.Sujet}"

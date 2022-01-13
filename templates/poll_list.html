@@ -1,10 +1,6 @@
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <title>Liste des sondages</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
     <ul>
     {% for object in object_list %}
             <li>
@@ -14,6 +10,4 @@
             </li>
     {% endfor %}
     </ul>
-    <a href="{% url "poll_create" %}">Retour</a>
-</body>
-</html>
+{% endblock %}

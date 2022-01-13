@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from msilib.schema import ListView
+
 from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -11,7 +11,7 @@ from django.views import View
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, FormView
 
 from app.forms.login import LoginForm
-from app.models import Polls
+from app.models import Poll
 
 
 class IndexView(TemplateView):
@@ -25,26 +25,26 @@ class IndexView(TemplateView):
 
 class PollsCreateView(CreateView):
     template_name = "poll_create.html"
-    model = Polls
+    model = Poll
     fields = ('Sujet', 'Question', 'option_1', 'option_2', 'option_3', 'option_4')
     success_url = reverse_lazy('poll_list')
 
 
 class PollsListView(ListView):
     template_name = "poll_list.html"
-    model = Polls
+    model = Poll
 
 
 class PollsDetailView(LoginRequiredMixin, DetailView):
     template_name = "poll_detail.html"
-    model = Polls
+    model = Poll
 
-    def get_context_data(self, **kwargs):
-        result = super().get_context_data(**kwargs)
-        result["sujet"] = Subject.objects.filter(
-            choice__pk=self.object.pk
-        )
-        return result
+
+class PollUpdateView(UpdateView):
+    template_name = "poll_create.html"
+    model = Poll
+    fields = ('Sujet', 'Question', 'option_1', 'option_2', 'option_3', 'option_4')
+    success_url = reverse_lazy('poll_list')
 
 
 class LoginFormView(FormView):
