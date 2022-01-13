@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -37,9 +38,9 @@
 <body>
 	<nav class="topnav" id="myTopnav">
         	<a href="#"><i class="fa fa-home"></i></a>
-        	<a href="{% url "index" %}">Home</a>
-        	<a href="{% url "poll_create" %}">Create</a>
-            <a href="{% url "poll_list" %}">List of polls</a>
+        	<a href="{% url "index" %}"> {%  trans "Home" %} </a>
+        	<a href="{% url "poll_create" %}">{%  trans "Create polls" %}</a>
+            <a href="{% url "poll_list" %}">{%  trans "List of polls" %}</a>
 	    	<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 	    	<i class="fa fa-bars"></i>
         	</a>

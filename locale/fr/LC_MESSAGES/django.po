@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-13 22:07+0100\n"
+"POT-Creation-Date: 2022-01-13 22:48+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: .\Polls_and_surveys\settings.py:126
 msgid "English"
@@ -26,10 +26,22 @@ msgstr ""
 msgid "French"
 msgstr ""
 
+#: .\templates\base.html:41
+msgid "Home"
+msgstr "Accueil"
+
+#: .\templates\base.html:42
+msgid "Create polls"
+msgstr "Créer des sondages"
+
+#: .\templates\base.html:43
+msgid "List of polls"
+msgstr "Liste des sondages"
+
 #: .\templates\index.html:5
 msgid "Hi visitor!"
-msgstr ""
+msgstr "Salut visiteur"
 
 #: .\templates\index.html:7
 msgid "I hope you will enjoy this Website"
-msgstr ""
+msgstr "J'espère que tu apprécies le site"

@@ -16,11 +16,16 @@ Including another URLconf
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.urls import path
+
 from django.views.i18n import JavaScriptCatalog
 
 from app.views import IndexView, PollsCreateView, PollsListView, LoginFormView, PollsDetailView, PollUpdateView
 
 urlpatterns = [
+]
+
+urlpatterns += i18n_patterns(
+    path("jsi18n/", JavaScriptCatalog.as_view(), name="javascript-catalog"),
     path('admin/', admin.site.urls),
     path('index', IndexView.as_view(), name='index'),
     path('polls', PollsListView.as_view(), name='poll_list'),
@@ -28,4 +33,4 @@ urlpatterns = [
     path('', LoginFormView.as_view(), name='login'),
     path('polls/<int:pk>', PollsDetailView.as_view(), name='poll_detail'),
     path('poll/update/<int:pk>', PollUpdateView.as_view(), name='poll_update'),
-]
+)
