@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-13 22:48+0100\n"
+"POT-Creation-Date: 2022-01-14 22:27+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,11 +30,13 @@ msgstr ""
 msgid "Home"
 msgstr "Accueil"
 
-#: .\templates\base.html:42
-msgid "Create polls"
-msgstr "Créer des sondages"
+#: .\templates\base.html:42 .\templates\poll_create.html:4
+#, fuzzy
+#| msgid "Create poll"
+msgid "Create poll"
+msgstr "Créer un sondage"
 
-#: .\templates\base.html:43
+#: .\templates\base.html:43 .\templates\poll_list.html:4
 msgid "List of polls"
 msgstr "Liste des sondages"
 
@@ -45,3 +47,11 @@ msgstr "Salut visiteur"
 #: .\templates\index.html:7
 msgid "I hope you will enjoy this Website"
 msgstr "J'espère que tu apprécies le site"
+
+#: .\templates\login.html:23
+msgid "Login"
+msgstr "Se connecter"
+
+#: .\templates\poll_create.html:16
+msgid "Submit"
+msgstr "Envoyer"

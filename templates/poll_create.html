@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% block content %}
-<form action="" method="post">
-    {% csrf_token %}
-    {% for field in form %}
-        {% if field.error %}
-            <span class="field-error">{{ field.error }}</span>
-        {% endif %}
-        <p>
-            <span>{{ field.label }}</span>
-            {{ field }}
-        </p>
-    {% endfor %}
-    <button type="submit">Ajouter</button>
-</form>
+    <h1>{%  trans "Create poll" %}</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            {% if field.error %}
+                <span class="field-error">{{ field.error }}</span>
+            {% endif %}
+            <p>
+                <span>{{ field.label }}</span>
+                {{ field }}
+            </p>
+        {% endfor %}
+        <button type="submit">{%  trans "Submit" %}</button>
+    </form>
 {% endblock %}
