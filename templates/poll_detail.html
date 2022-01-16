@@ -8,7 +8,11 @@
                 </p>
             </li>
     {% endfor %}
-    <h1>{{ object.Sujet }}</h1>
-    <h2>{{ object.Question }}</h2>
-
+    <h1>{{ object.Question }}</h1>
+     <ul class="list-group">
+         <li class="list-group-item">{{ object.option_1 }} &mdash; <strong>{{ object.option_1_count }}</strong></li>
+         <li class="list-group-item">{{ object.option_2 }} &mdash; <strong>{{ object.option_2_count }}</strong></li>
+         <li class="list-group-item">{{ object.option_3 }} &mdash; <strong>{{ object.option_3_count }}</strong></li>
+         <li class="list-group-item">{{ object.option_4 }} &mdash; <strong>{{ object.option_4_count }}</strong></li>
+     </ul>
 {% endblock %}

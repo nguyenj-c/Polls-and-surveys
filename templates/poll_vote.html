@@ -13,12 +13,12 @@
                     {{ object }}
                 </a>
                 <div id="buttonPoll">
-                    <button onclick="location.href='{% url "poll_update" object.pk %}'" type="button">
+                    <a href="{% url "poll_update" object.pk %}">
                         Modifier
-                    </button>
-                    <button onclick="location.href='{% url "poll_delete" object.pk %}'" type="button">
+                    </a>
+                    <a href="{% url "poll_delete" object.pk %}">
                         Supprimer
-                    </button>
+                    </a>
                 </div>
             </li>
     {% endfor %}

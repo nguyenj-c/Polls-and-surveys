@@ -317,7 +317,7 @@ textarea {
     text-align: center;
 }
 
-h1{
+h1, h2 {
     text-align: center;
 }
 
@@ -345,5 +345,10 @@ ul {
 li {
     list-style: none;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+}
+
+div#buttonPoll {
+    display: block;
+    margin-left: auto;
 }

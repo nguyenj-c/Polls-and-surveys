@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-14 22:27+0100\n"
+"POT-Creation-Date: 2022-01-14 23:20+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,7 +36,7 @@ msgstr "Accueil"
 msgid "Create poll"
 msgstr "Créer un sondage"
 
-#: .\templates\base.html:43 .\templates\poll_list.html:4
+#: .\templates\base.html:43
 msgid "List of polls"
 msgstr "Liste des sondages"
 
@@ -55,3 +55,8 @@ msgstr "Se connecter"
 #: .\templates\poll_create.html:16
 msgid "Submit"
 msgstr "Envoyer"
+
+#: .\templates\poll_list.html:5
+#, python-format
+msgid "%(title)s"
+msgstr ""
