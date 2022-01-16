@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-14 23:20+0100\n"
+"POT-Creation-Date: 2022-01-16 21:22+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,7 +54,11 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: .\templates\poll_list.html:5
+#: .\templates\poll_detail.html:5
+msgid "Poll results"
+msgstr ""
+
+#: .\templates\poll_list.html:5 .\templates\poll_vote.html:5
 #, python-format
 msgid "%(title)s"
 msgstr ""

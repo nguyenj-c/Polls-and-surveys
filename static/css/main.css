@@ -352,3 +352,29 @@ div#buttonPoll {
     display: block;
     margin-left: auto;
 }
+
+.panel {
+    border-radius: 10px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+h2.panel-title {
+    display: flex;
+    background: #ff7f5080;
+    border-radius: 3px;
+}
+
+ul.list-group {
+    background: #9e9e9e45;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.panel-footer {
+    text-align: center;
+    font-size: 22px;
+}

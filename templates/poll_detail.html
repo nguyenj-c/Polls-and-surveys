@@ -1,18 +1,17 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% block content %}
-    {% for object in poll_detail %}
-            <li>
-                <p>
-                    {{ object }}
-                </p>
-            </li>
-    {% endfor %}
-    <h1>{{ object.Question }}</h1>
-     <ul class="list-group">
-         <li class="list-group-item">{{ object.option_1 }} &mdash; <strong>{{ object.option_1_count }}</strong></li>
-         <li class="list-group-item">{{ object.option_2 }} &mdash; <strong>{{ object.option_2_count }}</strong></li>
-         <li class="list-group-item">{{ object.option_3 }} &mdash; <strong>{{ object.option_3_count }}</strong></li>
-         <li class="list-group-item">{{ object.option_4 }} &mdash; <strong>{{ object.option_4_count }}</strong></li>
-     </ul>
+    <div class="panel">
+        <h2 class="panel-title">{%  trans "Poll results" %}</h2>
+        <h1>{{ object.Question }}</h1>
+         <ul class="list-group">
+             <li class="list-group-item">{{ object.option_1 }} &mdash; <strong>{{ object.option_1_count }}</strong></li>
+             <li class="list-group-item">{{ object.option_2 }} &mdash; <strong>{{ object.option_2_count }}</strong></li>
+             <li class="list-group-item">{{ object.option_3 }} &mdash; <strong>{{ object.option_3_count }}</strong></li>
+             <li class="list-group-item">{{ object.option_4 }} &mdash; <strong>{{ object.option_4_count }}</strong></li>
+         </ul>
+        <div class="panel-footer">
+            Total &mdash; <strong>{{ object.total }}</strong>
+        </div>
+    </div>
 {% endblock %}
