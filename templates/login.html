@@ -14,12 +14,16 @@
                 {% for error in field.errors %}
                     <h2 style="color: red">{{ error }}</h2>
                 {% endfor %}
-        {% endif %}
+            {% endif %}
             <p>
                 <span>{{ field.label }}</span>
                 {{ field }}
             </p>
         {% endfor %}
         <button type="submit">{%  trans "Login"  %}</button>
+        <a href="{% url "register" %}">
+            {%  trans "You are not register ?"  %}
+        </a>
     </form>
+
 {% endblock %}

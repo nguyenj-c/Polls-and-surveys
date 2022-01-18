@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-18 11:07+0100\n"
+"POT-Creation-Date: 2022-01-18 22:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\Polls_and_surveys\settings.py:126
+#: .\Polls_and_surveys\settings.py:128
 msgid "English"
 msgstr ""
 
-#: .\Polls_and_surveys\settings.py:127
+#: .\Polls_and_surveys\settings.py:129
 msgid "French"
 msgstr ""
 
@@ -30,12 +30,16 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: .\templates\base.html:42 .\templates\poll_create.html:4
+#: .\templates\base.html:43 .\templates\poll_create.html:4
 msgid "Create poll"
 msgstr ""
 
-#: .\templates\base.html:43
+#: .\templates\base.html:44
 msgid "List of polls"
+msgstr ""
+
+#: .\templates\base.html:45
+msgid "Logout"
 msgstr ""
 
 #: .\templates\index.html:5 .\templates\poll_list.html:5
@@ -60,7 +64,15 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: .\templates\poll_create.html:16
+#: .\templates\login.html:25
+msgid "You are not register ?"
+msgstr ""
+
+#: .\templates\logout.html:5
+msgid "Click here to login again."
+msgstr ""
+
+#: .\templates\poll_create.html:17
 msgid "Submit"
 msgstr ""
 
@@ -74,4 +86,8 @@ msgstr ""
 
 #: .\templates\poll_list.html:20
 msgid "Remove"
+msgstr ""
+
+#: .\templates\register.html:15
+msgid "Register"
 msgstr ""
