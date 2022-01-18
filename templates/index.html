@@ -1,16 +1,12 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% block content %}
-    <h1>Index !</h1>
-    {%  trans "Hi visitor!" %}
-    <p>
+    <h1>
         {%  blocktrans trimmed %}
-            I hope you will
-            enjoy
-            this
-            Website
+            {{ title }}
         {% endblocktrans %}
-    </p>
+    </h1>
+    {%  trans "Hi visitor!" %}
     {% if messages %}
         <ul class="messages">
             {% for message in messages %}
@@ -23,5 +19,22 @@
             {% endfor %}
         </ul>
     {% endif %}
-{% endblock %}
 
+    <ul>
+    {% for object in object_list %}
+            <li>
+                <p>
+                    {{ object }}
+                </p>
+                <div id="buttonPoll">
+                    <button onclick="location.href='{% url "poll_list" %}'" type="button">
+                        {%  trans "Vote" %}
+                    </button>
+                    <button onclick="location.href='{% url "poll_detail" object.pk %}'" type="button">
+                        {%  trans "View results" %}
+                    </button>
+                </div>
+            </li>
+    {% endfor %}
+    </ul>
+{% endblock %}

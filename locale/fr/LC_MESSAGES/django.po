@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-16 21:22+0100\n"
+"POT-Creation-Date: 2022-01-18 11:07+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,13 +38,24 @@ msgstr "Créer un sondage"
 msgid "List of polls"
 msgstr "Liste des sondages"
 
-#: .\templates\index.html:5
+#: .\templates\index.html:5 .\templates\poll_list.html:5
+#: .\templates\poll_vote.html:5
+#, python-format
+msgid "%(title)s"
+msgstr "%(title)s"
+
+#: .\templates\index.html:9
 msgid "Hi visitor!"
 msgstr "Salut visiteur"
 
-#: .\templates\index.html:7
-msgid "I hope you will enjoy this Website"
-msgstr "J'espère que tu apprécies le site"
+#: .\templates\index.html:31
+msgid "Vote"
+msgstr ""
+
+#: .\templates\index.html:34
+
+msgid "View results"
+msgstr "Voir résultat"
 
 #: .\templates\login.html:23
 msgid "Login"
@@ -58,7 +69,13 @@ msgstr "Envoyer"
 msgid "Poll results"
 msgstr "Résultat du sondage"
 
-#: .\templates\poll_list.html:5 .\templates\poll_vote.html:5
-#, python-format
-msgid "%(title)s"
-msgstr "%(title)s"
+#: .\templates\poll_list.html:17
+msgid "Update"
+msgstr "Modifier"
+
+#: .\templates\poll_list.html:20
+msgid "Remove"
+msgstr "Supprimer"
+
+#~ msgid "I hope you will enjoy this Website"
+#~ msgstr "J'espère que tu apprécies le site"

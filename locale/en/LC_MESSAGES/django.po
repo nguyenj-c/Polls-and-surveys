@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-16 21:22+0100\n"
+"POT-Creation-Date: 2022-01-18 11:07+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,12 +38,22 @@ msgstr ""
 msgid "List of polls"
 msgstr ""
 
-#: .\templates\index.html:5
+#: .\templates\index.html:5 .\templates\poll_list.html:5
+#: .\templates\poll_vote.html:5
+#, python-format
+msgid "%(title)s"
+msgstr ""
+
+#: .\templates\index.html:9
 msgid "Hi visitor!"
 msgstr ""
 
-#: .\templates\index.html:7
-msgid "I hope you will enjoy this Website"
+#: .\templates\index.html:31
+msgid "Vote"
+msgstr ""
+
+#: .\templates\index.html:34
+msgid "View results"
 msgstr ""
 
 #: .\templates\login.html:23
@@ -58,7 +68,10 @@ msgstr ""
 msgid "Poll results"
 msgstr ""
 
-#: .\templates\poll_list.html:5 .\templates\poll_vote.html:5
-#, python-format
-msgid "%(title)s"
+#: .\templates\poll_list.html:17
+msgid "Update"
+msgstr ""
+
+#: .\templates\poll_list.html:20
+msgid "Remove"
 msgstr ""

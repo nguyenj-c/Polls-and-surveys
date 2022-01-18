@@ -15,8 +15,9 @@ from app.forms.login import LoginForm
 from app.models import Poll
 
 
-class IndexView(TemplateView):
+class IndexView(ListView):
     template_name = "index.html"
+    model = Poll
 
     def get_context_data(self, **kwargs):
         result = super().get_context_data(**kwargs)

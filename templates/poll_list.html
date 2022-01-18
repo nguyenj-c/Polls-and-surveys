@@ -14,10 +14,10 @@
                 </a>
                 <div id="buttonPoll">
                     <button onclick="location.href='{% url "poll_update" object.pk %}'" type="button">
-                        Modifier
+                        {%  trans "Update" %}
                     </button>
                     <button onclick="location.href='{% url "poll_delete" object.pk %}'" type="button">
-                        Supprimer
+                        {%  trans "Remove" %}
                     </button>
                 </div>
             </li>
