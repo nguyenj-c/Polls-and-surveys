@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-18 22:12+0100\n"
+"POT-Creation-Date: 2022-01-19 11:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,76 +18,71 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\Polls_and_surveys\settings.py:128
+#: Polls_and_surveys/settings.py:128
 msgid "English"
 msgstr ""
 
-#: .\Polls_and_surveys\settings.py:129
+#: Polls_and_surveys/settings.py:129
 msgid "French"
 msgstr ""
 
-#: .\templates\base.html:41
-msgid "Home"
-msgstr ""
-
-#: .\templates\base.html:43 .\templates\poll_create.html:4
+#: templates/base.html:42 templates/poll_create.html:4
 msgid "Create poll"
 msgstr ""
 
-#: .\templates\base.html:44
+#: templates/base.html:43
 msgid "List of polls"
 msgstr ""
 
-#: .\templates\base.html:45
+#: templates/base.html:44
 msgid "Logout"
 msgstr ""
 
-#: .\templates\index.html:5 .\templates\poll_list.html:5
-#: .\templates\poll_vote.html:5
+#: templates/base.html:47
+msgid "Home"
+msgstr ""
+
+#: templates/index.html:5 templates/poll_list.html:5 templates/poll_vote.html:5
 #, python-format
 msgid "%(title)s"
 msgstr ""
 
-#: .\templates\index.html:9
+#: templates/index.html:9
 msgid "Hi visitor!"
 msgstr ""
 
-#: .\templates\index.html:31
+#: templates/index.html:31
 msgid "Vote"
 msgstr ""
 
-#: .\templates\index.html:34
+#: templates/index.html:34
 msgid "View results"
 msgstr ""
 
-#: .\templates\login.html:23
+#: templates/login.html:23
 msgid "Login"
 msgstr ""
 
-#: .\templates\login.html:25
+#: templates/login.html:25
 msgid "You are not register ?"
 msgstr ""
 
-#: .\templates\logout.html:5
-msgid "Click here to login again."
-msgstr ""
-
-#: .\templates\poll_create.html:17
+#: templates/poll_create.html:17
 msgid "Submit"
 msgstr ""
 
-#: .\templates\poll_detail.html:5
+#: templates/poll_detail.html:5
 msgid "Poll results"
 msgstr ""
 
-#: .\templates\poll_list.html:17
+#: templates/poll_list.html:17
 msgid "Update"
 msgstr ""
 
-#: .\templates\poll_list.html:20
+#: templates/poll_list.html:20
 msgid "Remove"
 msgstr ""
 
-#: .\templates\register.html:15
+#: templates/register.html:15
 msgid "Register"
 msgstr ""

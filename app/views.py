@@ -129,10 +129,6 @@ class RegisterFormView(FormView):
             return super().form_invalid(form)
 
 
-class LogoutView(View):
-    template_name = 'logout.html'
-    success_url = "/"
-
-    def logout(request):
-        logout(request)
-        return redirect('/')
+def logout_view(request):
+    logout(request)
+    return redirect('/')

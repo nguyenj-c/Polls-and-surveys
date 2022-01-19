@@ -19,7 +19,7 @@ from django.urls import path
 
 from django.views.i18n import JavaScriptCatalog
 
-from app.views import IndexView, PollsCreateView, PollsListView, LoginFormView, PollsDetailView, PollUpdateView, PollDeleteView, RegisterFormView, LogoutView
+from app.views import IndexView, PollsCreateView, PollsListView, LoginFormView, PollsDetailView, PollUpdateView, PollDeleteView, RegisterFormView, logout_view
 
 urlpatterns = [
 ]
@@ -32,7 +32,7 @@ urlpatterns += i18n_patterns(
     path('poll/create', PollsCreateView.as_view(), name='poll_create'),
     path('', LoginFormView.as_view(), name='login'),
     path('register', RegisterFormView.as_view(), name='register'),
-    path('logout', LogoutView.as_view(), name='logout'),
+    path('logout', logout_view, name='logout'),
     path('polls/<int:pk>', PollsDetailView.as_view(), name='poll_detail'),
     path('poll/update/<int:pk>', PollUpdateView.as_view(), name='poll_update'),
     path('poll/delete/<int:pk>', PollDeleteView.as_view(), name='poll_delete'),
