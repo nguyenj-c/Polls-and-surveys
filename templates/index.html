@@ -6,7 +6,9 @@
             {{ title }}
         {% endblocktrans %}
     </h1>
-    {%  trans "Hi visitor!" %}
+    <p id="greeting">
+        {%  trans "Hi visitor!" %}
+    </p>
     {% if messages %}
         <ul class="messages">
             {% for message in messages %}

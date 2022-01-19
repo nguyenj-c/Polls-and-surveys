@@ -1,5 +1,4 @@
-from django.http import HttpResponseForbidden
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
@@ -40,8 +39,6 @@ class PollsCreateView(CreateView):
 
 class PollsListView(LoginRequiredMixin, ListView):
     template_name = "poll_list.html"
-    login_url = ''
-    redirect_field_name = '/'
     model = Poll
 
     def get_context_data(self, **kwargs):
@@ -74,23 +71,9 @@ class PollUpdateView(UpdateView):
 
 
 class PollDeleteView(DeleteView):
-    template_name = "poll_list.html"
+    template_name = "poll_delete.html"
     model = Poll
-    http_method_names = ['delete']
-    success_url = reverse_lazy('poll_list')
-
-    def get_context_data(self, **kwargs):
-        result = super().get_context_data(**kwargs)
-        result['title'] = 'Delete poll'
-        return result
-
-    def dispatch(self, request, *args, **kwargs):
-        # safety checks go here ex: is user allowed to delete?
-        if request.user.username != kwargs['username']:
-            return HttpResponseForbidden()
-        else:
-            handler = getattr(self, 'delete')
-            return handler(request, *args, **kwargs)
+    success_url = "/index"
 
 
 class LoginFormView(FormView):

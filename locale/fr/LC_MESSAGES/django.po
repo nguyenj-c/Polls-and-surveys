@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-19 11:30+0000\n"
+"POT-Creation-Date: 2022-01-19 12:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,20 +42,21 @@ msgstr "Se déconnecter"
 msgid "Home"
 msgstr "Accueil"
 
-#: templates/index.html:5 templates/poll_list.html:5 templates/poll_vote.html:5
+#: templates/index.html:5 templates/poll_delete.html:5
+#: templates/poll_list.html:5 templates/poll_vote.html:5
 #, python-format
 msgid "%(title)s"
 msgstr "%(title)s"
 
-#: templates/index.html:9
+#: templates/index.html:10
 msgid "Hi visitor!"
 msgstr "Salut visiteur"
 
-#: templates/index.html:31
+#: templates/index.html:33
 msgid "Vote"
 msgstr "Voter"
 
-#: templates/index.html:34
+#: templates/index.html:36
 msgid "View results"
 msgstr "Voir résultat"
 
@@ -70,6 +71,10 @@ msgstr "Vous n'êtes pas inscrit ?"
 #: templates/poll_create.html:17
 msgid "Submit"
 msgstr "Envoyer"
+
+#: templates/poll_delete.html:10
+msgid "Are you sure you want to delete "
+msgstr "Etes vous sûre de vouloir supprimer "
 
 #: templates/poll_detail.html:5
 msgid "Poll results"

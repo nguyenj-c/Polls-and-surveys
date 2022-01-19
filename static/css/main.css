@@ -396,3 +396,11 @@ h1.panel-question {
 p {
     margin-top: 0px;
 }
+
+.messages {
+  border: none;
+}
+
+#greeting{
+    text-align: center;
+}
