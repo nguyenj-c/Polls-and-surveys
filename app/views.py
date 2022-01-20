@@ -76,6 +76,39 @@ class PollDeleteView(DeleteView):
     success_url = "/index"
 
 
+class PollVoteView(DeleteView):
+    template_name = "poll_vote.html"
+    model = Poll
+    success_url = "/index"
+
+    def get_context_data(self, **kwargs):
+        result = super().get_context_data(**kwargs)
+        result['title'] = 'Vote'
+        return result
+
+
+class PollSubmitVoteView(View):
+    template_name = "poll_vote.html"
+    model = Poll
+
+    def vote(request, poll_id):
+        poll = Poll.objects.get(pk=poll_id)
+
+        if request.method == 'POST':
+            selected_option = request.POST['poll']
+            if selected_option == 'option1':
+                poll.option_one_count += 1
+            elif selected_option == 'option2':
+                poll.option_two_count += 1
+            elif selected_option == 'option3':
+                poll.option_three_count += 1
+            elif selected_option == 'option4':
+                poll.option_three_count += 1
+            else:
+                return "Not valid"
+        poll.save()
+
+
 class LoginFormView(FormView):
     template_name = 'login.html'
     form_class = LoginForm

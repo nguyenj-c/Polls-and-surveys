@@ -6,21 +6,34 @@
             {{ title }}
         {% endblocktrans %}
     </h1>
-    <ul>
-    {% for object in object_list %}
-            <li>
-                <a href="{% url "poll_detail" object.pk %}">
-                    {{ object }}
-                </a>
-                <div id="buttonPoll">
-                    <a href="{% url "poll_update" object.pk %}">
-                        Modifier
-                    </a>
-                    <a href="{% url "poll_delete" object.pk %}">
-                        Supprimer
-                    </a>
-                </div>
-            </li>
-    {% endfor %}
-    </ul>
+    <div class="panel">
+        <h2 class="title">
+            {{ object.Question }}
+        </h2>
+        <form class="form-vote" method="POST">
+            {% csrf_token %}
+            <div class="radio">
+                <label>
+                    <input type="radio" name="poll" value="option1" required>
+                        {{ object.option_1 }}
+                </label> &nbsp;
+                <label>
+                    <input type="radio" name="poll" value="option2">
+                        {{ object.option_2 }}
+                </label> &nbsp;
+                <label>
+                    <input type="radio" name="poll" value="option3">
+                        {{ object.option_3 }}
+                </label> &nbsp;
+                <label>
+                    <input type="radio" name="poll" value="option4">
+                        {{ object.option_4 }}
+                </label> &nbsp;
+            </div>
+            <hr />
+            <button type="submit" class="btn btn-info">
+                {% trans "Submit" %}
+            </button>
+        </form>
+    </div>>
 {% endblock %}

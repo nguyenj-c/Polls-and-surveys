@@ -29,7 +29,7 @@
                     {{ object }}
                 </p>
                 <div id="buttonPoll">
-                    <button onclick="location.href='{% url "poll_list" %}'" type="button">
+                    <button onclick="location.href='{% url "poll_vote" object.pk %}'" type="button">
                         {%  trans "Vote" %}
                     </button>
                     <button onclick="location.href='{% url "poll_detail" object.pk %}'" type="button">

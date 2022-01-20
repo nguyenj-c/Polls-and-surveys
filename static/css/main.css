@@ -404,3 +404,15 @@ p {
 #greeting{
     text-align: center;
 }
+.title {
+  border: solid 5px black;
+  border-radius: 5px;
+    margin-bottom: 0px;
+
+}
+.form-vote {
+  width: auto;
+  border: solid 5px black;
+  border-radius: 5px;
+  margin-top: -5px;
+}
