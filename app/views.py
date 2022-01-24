@@ -91,22 +91,24 @@ class PollSubmitVoteView(View):
     template_name = "poll_vote.html"
     model = Poll
 
-    def vote(request, poll_id):
-        poll = Poll.objects.get(pk=poll_id)
 
-        if request.method == 'POST':
-            selected_option = request.POST['poll']
-            if selected_option == 'option1':
-                poll.option_one_count += 1
-            elif selected_option == 'option2':
-                poll.option_two_count += 1
-            elif selected_option == 'option3':
-                poll.option_three_count += 1
-            elif selected_option == 'option4':
-                poll.option_three_count += 1
-            else:
-                return "Not valid"
-        poll.save()
+def vote(request):
+    poll = Poll.objects.get(pk=request.POST['id'])
+
+    if request.method == 'POST':
+        selected_option = request.POST['poll']
+    if selected_option == 'option1':
+        poll.option_1_count += 1
+    elif selected_option == 'option2':
+        poll.option_2_count += 1
+    elif selected_option == 'option3':
+        poll.option_3_count += 1
+    elif selected_option == 'option4':
+        poll.option_4_count += 1
+    else:
+        return "Not valid"
+    poll.save()
+    return redirect('/index')
 
 
 class LoginFormView(FormView):

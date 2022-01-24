@@ -10,9 +10,10 @@
         <h2 class="title">
             {{ object.Question }}
         </h2>
-        <form class="form-vote" method="POST">
+        <form class="form-vote" method="POST" action="{% url "poll_submit_vote" %}">
             {% csrf_token %}
             <div class="radio">
+                <input type="hidden" name="id" value="{{ object.pk }}" required>
                 <label>
                     <input type="radio" name="poll" value="option1" required>
                         {{ object.option_1 }}
