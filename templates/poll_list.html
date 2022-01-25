@@ -9,7 +9,7 @@
     <ul>
     {% for object in object_list %}
             <li>
-                <a href="{% url "poll_detail" object.pk %}">
+                <a id="poll_list" href="{% url "poll_detail" object.pk %}">
                     {{ object }}
                 </a>
                 <div id="buttonPoll">

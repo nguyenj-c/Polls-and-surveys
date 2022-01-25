@@ -336,16 +336,17 @@ form {
 }
 
 ul {
-    border: solid 5px black;
-    width: 50%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
+    padding: 0px;
 }
 
 li {
     list-style: none;
     display: flex;
-    justify-content: flex-start;
+    border: solid 5px black;
+    margin-top: -5px;
 }
 
 div#buttonPoll {
@@ -393,9 +394,6 @@ h1.panel-question {
     margin-top: -3px;
 }
 
-p {
-    margin-top: 0px;
-}
 
 .messages {
   border: none;
@@ -415,4 +413,17 @@ p {
   border: solid 5px black;
   border-radius: 5px;
   margin-top: -5px;
+}
+
+button {
+    height: 100%;
+}
+
+li.info {
+    border: none;
+}
+
+a#poll_list {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
 }
