@@ -10,3 +10,4 @@ class LoginForm(Form):
 class RegisterForm(Form):
     username = forms.CharField(max_length=200)
     password = forms.CharField(max_length=200, widget=forms.PasswordInput)
+    confirm_password = forms.CharField(max_length=200, widget=forms.PasswordInput())

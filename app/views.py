@@ -15,6 +15,10 @@ from app.forms.login import LoginForm, RegisterForm
 from app.models import Poll
 
 
+def current_user(request):
+    return request.user
+
+
 class IndexView(ListView):
     template_name = "index.html"
     model = Poll
@@ -25,7 +29,7 @@ class IndexView(ListView):
         return result
 
 
-class PollsCreateView(CreateView):
+class PollsCreateView(LoginRequiredMixin, CreateView):
     template_name = "poll_create.html"
     model = Poll
     fields = ('Question', 'option_1', 'option_2', 'option_3', 'option_4')
@@ -44,6 +48,9 @@ class PollsListView(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         result = super().get_context_data(**kwargs)
         result['title'] = 'List of poll'
+        #result["polls"] = Poll.objects.filter(
+        #    author=current_user(self)
+        #)
         return result
 
 
@@ -58,7 +65,7 @@ class PollsDetailView(DetailView):
         return result
 
 
-class PollUpdateView(UpdateView):
+class PollUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "poll_create.html"
     model = Poll
     fields = ('Question', 'option_1', 'option_2', 'option_3', 'option_4')
@@ -70,7 +77,7 @@ class PollUpdateView(UpdateView):
         return result
 
 
-class PollDeleteView(DeleteView):
+class PollDeleteView(LoginRequiredMixin, DeleteView):
     template_name = "poll_delete.html"
     model = Poll
     success_url = "/index"
@@ -85,11 +92,6 @@ class PollVoteView(DeleteView):
         result = super().get_context_data(**kwargs)
         result['title'] = 'Vote'
         return result
-
-
-class PollSubmitVoteView(View):
-    template_name = "poll_vote.html"
-    model = Poll
 
 
 def vote(request):
@@ -140,6 +142,16 @@ class RegisterFormView(FormView):
     def form_valid(self, form):
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
+            confirm_password = form.cleaned_data["confirm_password"]
+
+            if password != confirm_password:
+                form.add_error('confirm_password', "Password does not match")
+                return super().form_invalid(form)
+
+            duplicate_users = User.objects.filter(username=username)
+            if duplicate_users.exists():
+                form.add_error('username', "This username is already registered!")
+                return super().form_invalid(form)
             user = User.objects.create_user(username=username, password=password)
             if user is not None:
                 login(self.request, user)
@@ -147,6 +159,6 @@ class RegisterFormView(FormView):
             return super().form_invalid(form)
 
 
-def logout_view(request):
+def logout_views(request):
     logout(request)
     return redirect('/')

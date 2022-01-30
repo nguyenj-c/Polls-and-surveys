@@ -1,6 +1,6 @@
+from django.contrib.auth.models import User
 from django.db import models
-from datetime import datetime
-
+from django.utils import timezone
 # Create your models here.
 
 
@@ -14,10 +14,12 @@ class Poll(models.Model):
     option_2_count = models.IntegerField(default=0)
     option_3_count = models.IntegerField(default=0)
     option_4_count = models.IntegerField(default=0)
-    date_creation = models.DateTimeField('date creation', default=datetime.now())
+    author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    date_creation = models.DateTimeField('date creation', default=timezone.now())
 
     def total(self):
         return self.option_1_count + self.option_2_count + self.option_3_count + self.option_4_count
 
     def __str__(self):
         return f"{self.Question}"
+

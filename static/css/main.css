@@ -266,7 +266,7 @@ textarea {
    ========================================================================== */
 .topnav {
     overflow: hidden;
-    background-color: #5b5b5b;
+    background-color: #00edff;
     position:sticky;
 }
 
@@ -315,6 +315,7 @@ textarea {
     float: none;
     display: block;
     text-align: center;
+    margin-left: -1px;
 }
 
 h1, h2 {
@@ -322,7 +323,7 @@ h1, h2 {
 }
 
 form {
-    background: #fcff2936;
+    background: #3fff0036;
     border-color: #efff9d;
     width: 30%;
     padding: 40px;
@@ -352,8 +353,13 @@ li {
 div#buttonPoll {
     display: block;
     margin-left: auto;
+    margin-right: -1px;
 }
-
+button{
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
 .panel {
     border-radius: 10px;
     width: 60%;
