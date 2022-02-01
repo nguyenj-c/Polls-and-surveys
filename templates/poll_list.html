@@ -7,7 +7,7 @@
         {% endblocktrans %}
     </h1>
     <ul>
-    {% for object in object_list %}
+    {% for object in polls %}
             <li>
                 <a id="poll_list" href="{% url "poll_detail" object.pk %}">
                     {{ object }}

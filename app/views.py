@@ -15,10 +15,6 @@ from app.forms.login import LoginForm, RegisterForm
 from app.models import Poll
 
 
-def current_user(request):
-    return request.user
-
-
 class IndexView(ListView):
     template_name = "index.html"
     model = Poll
@@ -40,6 +36,9 @@ class PollsCreateView(LoginRequiredMixin, CreateView):
         result['title'] = 'Create poll'
         return result
 
+def current_user(self):
+    return self.request.user
+
 
 class PollsListView(LoginRequiredMixin, ListView):
     template_name = "poll_list.html"
@@ -48,9 +47,9 @@ class PollsListView(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         result = super().get_context_data(**kwargs)
         result['title'] = 'List of poll'
-        #result["polls"] = Poll.objects.filter(
-        #    author=current_user(self)
-        #)
+        result["polls"] = Poll.objects.filter(
+            author__username= current_user(self)
+        )
         return result
 
 

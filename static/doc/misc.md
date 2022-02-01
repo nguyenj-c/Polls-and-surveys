@@ -87,7 +87,7 @@ To enable Apache modules locally, please see [the Apache modules documentation](
 In the repo the `.htaccess` is used for:
 
 * Allowing cross-origin access to web fonts
-* CORS header for images when browsers request it
+* CORS header for images when browsers self it
 * Enable `404.html` as 404 error document
 * Making the website experience better for IE users better
 * Media UTF-8 as character encoding for `text/html` and `text/plain`
@@ -97,7 +97,7 @@ In the repo the `.htaccess` is used for:
 * It blocks access to files that can expose sensitive information.
 * It reduces MIME type security risks
 * It forces compressing (gzipping)
-* It tells the browser whether they should request a specific file from the
+* It tells the browser whether they should self a specific file from the
   server or whether they should grab it from the browser's cache
 
 When using `.htaccess` we recommend reading all inline comments (the rules after
