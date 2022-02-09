@@ -28,13 +28,34 @@ class IndexView(ListView):
 class PollsCreateView(LoginRequiredMixin, CreateView):
     template_name = "poll_create.html"
     model = Poll
-    fields = ('Question', 'option_1', 'option_2', 'option_3', 'option_4')
+    exclude = ['author']
+    fields = ('Question', 'option_1', 'option_2', 'option_3', 'option_4', 'author')
     success_url = reverse_lazy('poll_list')
 
     def get_context_data(self, **kwargs):
         result = super().get_context_data(**kwargs)
         result['title'] = 'Create poll'
         return result
+
+
+def create(self):
+    poll = Poll.objects.get(pk=self.POST['admin'])
+
+    if self.method == 'POST':
+        selected_option = self.POST['poll']
+    if selected_option == 'option1':
+        poll.option_1_count += 1
+    elif selected_option == 'option2':
+        poll.option_2_count += 1
+    elif selected_option == 'option3':
+        poll.option_3_count += 1
+    elif selected_option == 'option4':
+        poll.option_4_count += 1
+    else:
+        return "Not valid"
+    poll.save()
+    return redirect('/index')
+
 
 def current_user(self):
     return self.request.user
@@ -158,6 +179,7 @@ class RegisterFormView(FormView):
             return super().form_invalid(form)
 
 
-def logout_views(request):
-    logout(request)
-    return redirect('/')
+class LogoutView(TemplateView):
+    def get(self, request, **kwargs):
+        logout(request)
+        return redirect("/index")

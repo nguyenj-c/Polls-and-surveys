@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% block content %}
+    {% if user.is_authenticated %}
+        <meta http-equiv="REFRESH" content="0;url={% url "index" %}">
+    {% else %}
     <h1>Login !</h1>
     <form action="" method="post">
         {% csrf_token %}
@@ -25,5 +28,5 @@
             {%  trans "You are not register ?"  %}
         </a>
     </form>
-
+    {% endif %}
 {% endblock %}
