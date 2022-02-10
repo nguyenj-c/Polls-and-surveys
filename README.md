@@ -3,6 +3,7 @@
 ## Sujet : Polls & Surveys
 
 ### LP Dev Web - Nguyen Jean Christophe
-`` 
-python manage.py runserver
-``
+
+Ce projet est un site permettant de créer des sondages, trier des sondages par utilisateur, rechercher des sondages, etc
+
+Le site est hébergé ici ( https://nguyenjc.pythonanywhere.com/fr )

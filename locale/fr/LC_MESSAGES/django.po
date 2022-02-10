@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-10 17:11+0100\n"
+"POT-Creation-Date: 2022-02-10 18:15+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,19 +49,28 @@ msgstr "Accueil"
 msgid "%(title)s"
 msgstr "%(title)s"
 
-#: .\templates\index.html:10
+#: .\templates\index.html:12 .\templates\index.html:14
+#: .\templates\poll_list.html:12 .\templates\poll_list.html:14
+#: .\templates\poll_orderBy_user.html:12 .\templates\poll_orderBy_user.html:14
+#: .\templates\poll_search.html:12 .\templates\poll_search.html:14
+msgid "Search"
+msgstr "Rechercher"
+
+#: .\templates\index.html:18
 msgid "Hi visitor!"
 msgstr "Salut visiteur"
 
-#: .\templates\index.html:12
+#: .\templates\index.html:20
 msgid "Sort by User"
 msgstr "Trier par utilisateur"
 
-#: .\templates\index.html:34 .\templates\poll_orderBy_user.html:20
+#: .\templates\index.html:42 .\templates\poll_orderBy_user.html:28
+#: .\templates\poll_search.html:37
 msgid "Vote"
 msgstr "Voter"
 
-#: .\templates\index.html:37 .\templates\poll_orderBy_user.html:23
+#: .\templates\index.html:45 .\templates\poll_orderBy_user.html:31
+#: .\templates\poll_search.html:40
 msgid "View results"
 msgstr "Voir résultat"
 
@@ -85,13 +94,17 @@ msgstr "Etes vous sûre de vouloir supprimer "
 msgid "Poll results"
 msgstr "Résultat du sondage"
 
-#: .\templates\poll_list.html:27 .\templates\poll_search.html:27
+#: .\templates\poll_list.html:35
 msgid "Update"
 msgstr "Modifier"
 
-#: .\templates\poll_list.html:30 .\templates\poll_search.html:30
+#: .\templates\poll_list.html:38
 msgid "Remove"
 msgstr "Supprimer"
+
+#: .\templates\poll_search.html:17
+msgid "The result of the search :"
+msgstr "Le résultat de la recherche"
 
 #: .\templates\register.html:15
 msgid "Register"
