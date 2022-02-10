@@ -6,6 +6,14 @@
             {{ title }}
         {% endblocktrans %}
     </h1>
+    <form action="{% url "searching" %}" method="post" class="search">
+        {% csrf_token %}
+        <button type="submit">
+            {% trans "Search" %}
+        </button>
+        <input type="search" class="form-control mr-sm-2" placeholder="{% trans "Search" %}"
+               aria-label="Search" name="poll-search" value="{{ search }}" />
+    </form>
     <ul>
         <ul class="messages">
             {% for message in messages %}

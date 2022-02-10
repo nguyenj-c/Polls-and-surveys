@@ -444,3 +444,17 @@ a#poll_list {
     background-color: #3fff00;
     margin-left: 15%;
 }
+form.search {
+    background: none;
+    padding: 0px;
+    flex-direction: row-reverse;
+    justify-content: normal;
+    display: inline-flex;
+    align-items: normal;
+    margin-right: 0px;
+    margin-left: 65%;
+}
+h2#titleSearch {
+    margin-right: 50%;
+    margin-bottom: 5%;
+}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-19 12:16+0000\n"
+"POT-Creation-Date: 2022-02-10 17:11+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,76 +18,85 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: Polls_and_surveys/settings.py:128
+#: .\Polls_and_surveys\settings.py:128
 msgid "English"
 msgstr ""
 
-#: Polls_and_surveys/settings.py:129
+#: .\Polls_and_surveys\settings.py:129
 msgid "French"
 msgstr ""
 
-#: templates/base.html:42 templates/poll_create.html:4
+#: .\templates\base.html:42 .\templates\poll_create.html:4
 msgid "Create poll"
 msgstr ""
 
-#: templates/base.html:43
+#: .\templates\base.html:43
 msgid "List of polls"
 msgstr ""
 
-#: templates/base.html:44
+#: .\templates\base.html:44
 msgid "Logout"
 msgstr ""
 
-#: templates/base.html:47
+#: .\templates\base.html:47
 msgid "Home"
 msgstr ""
 
-#: templates/index.html:5 templates/poll_delete.html:5
-#: templates/poll_list.html:5 templates/poll_vote.html:5
+#: .\templates\index.html:5 .\templates\poll_delete.html:5
+#: .\templates\poll_list.html:5 .\templates\poll_orderBy_user.html:5
+#: .\templates\poll_search.html:5 .\templates\poll_vote.html:5
 #, python-format
 msgid "%(title)s"
 msgstr ""
 
-#: templates/index.html:10
+#: .\templates\index.html:10
 msgid "Hi visitor!"
 msgstr ""
 
-#: templates/index.html:33
+#: .\templates\index.html:12
+msgid "Sort by User"
+msgstr ""
+
+#: .\templates\index.html:34 .\templates\poll_orderBy_user.html:20
 msgid "Vote"
 msgstr ""
 
-#: templates/index.html:36
+#: .\templates\index.html:37 .\templates\poll_orderBy_user.html:23
 msgid "View results"
 msgstr ""
 
-#: templates/login.html:23
+#: .\templates\login.html:26
 msgid "Login"
 msgstr ""
 
-#: templates/login.html:25
+#: .\templates\login.html:28
 msgid "You are not register ?"
 msgstr ""
 
-#: templates/poll_create.html:17
+#: .\templates\poll_create.html:17 .\templates\poll_vote.html:36
 msgid "Submit"
 msgstr ""
 
-#: templates/poll_delete.html:10
+#: .\templates\poll_delete.html:10
 msgid "Are you sure you want to delete "
 msgstr ""
 
-#: templates/poll_detail.html:5
+#: .\templates\poll_detail.html:5
 msgid "Poll results"
 msgstr ""
 
-#: templates/poll_list.html:17
+#: .\templates\poll_list.html:27 .\templates\poll_search.html:27
 msgid "Update"
 msgstr ""
 
-#: templates/poll_list.html:20
+#: .\templates\poll_list.html:30 .\templates\poll_search.html:30
 msgid "Remove"
 msgstr ""
 
-#: templates/register.html:15
+#: .\templates\poll_search.html:36
+msgid " by User"
+msgstr ""
+
+#: .\templates\register.html:15
 msgid "Register"
 msgstr ""

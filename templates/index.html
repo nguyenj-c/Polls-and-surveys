@@ -6,6 +6,14 @@
             {{ title }}
         {% endblocktrans %}
     </h1>
+    <form action="{% url "searching" %}" method="post" class="search">
+        {% csrf_token %}
+        <button type="submit">
+            {% trans "Search" %}
+        </button>
+        <input type="search" class="form-control mr-sm-2" placeholder="{% trans "Search" %}"
+               aria-label="Search" name="poll-search" value="{{ search }}" />
+    </form>
     <p id="greeting">
         {%  trans "Hi visitor!" %}
     </p>
@@ -24,7 +32,7 @@
     {% endif %}
 
     <ul>
-    {% for object in object_list %}
+        {% for object in object_list %}
             <li>
                 <p>
                     {{ object }}
@@ -38,6 +46,6 @@
                     </button>
                 </div>
             </li>
-    {% endfor %}
+        {% endfor %}
     </ul>
 {% endblock %}

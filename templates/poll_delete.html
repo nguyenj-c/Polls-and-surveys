@@ -8,6 +8,6 @@
     </h1>
     <form method="post">{% csrf_token %}
         <p>{%  trans "Are you sure you want to delete " %} "{{ object }}"?</p>
-    <input type="submit" value="Confirm">
-</form>
+        <input type="submit" value="Confirm">
+    </form>
 {% endblock %}

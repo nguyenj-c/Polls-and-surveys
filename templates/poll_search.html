@@ -6,6 +6,15 @@
             {{ title }}
         {% endblocktrans %}
     </h1>
+    <form action="{% url "searching" %}" method="post" class="search">
+        {% csrf_token %}
+        <button type="submit">
+            {% trans "Search" %}
+        </button>
+        <input type="search" class="form-control mr-sm-2" placeholder="{% trans "Search" %}"
+               aria-label="Search" name="poll-search" value="{{ search }}" />
+    </form>
+    <h2 id="titleSearch">{% trans "The result of the search :" %} {{ searchResult }}</h2>
     <ul>
         <ul class="messages">
             {% for message in messages %}
@@ -17,21 +26,21 @@
                 </li>
             {% endfor %}
         </ul>
-        {% for object in polls %}
+
+        {% for object in searchPoll %}
             <li>
-                <a id="poll_list" href="{% url "poll_detail" object.pk %}">
+                <p>
                     {{ object }}
-                </a>
+                </p>
                 <div id="buttonPoll">
-                    <button onclick="location.href='{% url "poll_update" object.pk %}'" type="button">
-                        {%  trans "Update" %}
+                    <button onclick="location.href='{% url "poll_vote" object.pk %}'" type="button">
+                        {%  trans "Vote" %}
                     </button>
-                    <button onclick="location.href='{% url "poll_delete" object.pk %}'" type="button">
-                        {%  trans "Remove" %}
+                    <button onclick="location.href='{% url "poll_detail" object.pk %}'" type="button">
+                        {%  trans "View results" %}
                     </button>
                 </div>
             </li>
         {% endfor %}
     </ul>
-    <a href="{% url "orderByUser" %}">{%  trans " by User" %}</a>
 {% endblock %}

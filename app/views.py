@@ -2,6 +2,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.core.paginator import Paginator
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -10,7 +11,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, FormView, DeleteView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, FormView, DeleteView, RedirectView
 from app.forms.login import LoginForm, RegisterForm
 from app.models import Poll
 
@@ -78,13 +79,20 @@ class SearchView(ListView):
     model = Poll
 
     def get_context_data(self, *, object_list=None, **kwargs):
-        data = super(SearchView, self).get_context_data(**kwargs)
-        data["categories"] = User.objects.all().order_by("name")
-        data["search"] = self.kwargs["search"]
-        return data
+        result = super(SearchView, self).get_context_data(**kwargs)
+        result['title'] = 'Search of poll'
+        result["searchPoll"] = Poll.objects.filter(author__username=self.kwargs["search"]).all()
+        result["searchResult"] = self.kwargs["search"]
+        return result
 
-    def get_queryset(self):
-        return Poll.objects.filter(author__username=self.kwargs["author"]).all()
+
+class SearchRedirectView(RedirectView):
+    def get_redirect_url(self, *args, **kwargs):
+        search = self.request.POST["poll-search"]
+        if search == "":
+            return reverse_lazy("polls")
+        else:
+            return reverse_lazy("searchPoll", kwargs={"search": search})
 
 
 class PollsDetailView(DetailView):

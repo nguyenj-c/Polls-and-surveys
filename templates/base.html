@@ -20,7 +20,7 @@
 
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
- 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <meta name="theme-color" content="#fafafa">
     <!-- Add your site or application content here -->
@@ -36,21 +36,21 @@
 </head>
 
 <body>
-	<nav class="topnav" id="myTopnav">
-            {% if user.is_authenticated %}
-                <a href="{% url "index" %}"><i class="fa fa-home"></i></a>
-                <a href="{% url "poll_create" %}">{%  trans "Create poll" %}</a>
-                <a href="{% url "poll_list" %}">{%  trans "List of polls" %}</a>
-                <a href="{% url "logout" %}">{%  trans "Logout" %}</a>
-            {% else %}
-                <a href="/"><i class="fa fa-home"></i></a>
-        	    <a href="{% url "index" %}"> {%  trans "Home" %} </a>
-            {% endif %}
+<nav class="topnav" id="myTopnav">
+    {% if user.is_authenticated %}
+        <a href="{% url "index" %}"><i class="fa fa-home"></i></a>
+        <a href="{% url "poll_create" %}">{%  trans "Create poll" %}</a>
+        <a href="{% url "poll_list" %}">{%  trans "List of polls" %}</a>
+        <a href="{% url "logout" %}">{%  trans "Logout" %}</a>
+    {% else %}
+        <a href="/"><i class="fa fa-home"></i></a>
+        <a href="{% url "index" %}"> {%  trans "Home" %} </a>
+    {% endif %}
 
-	    	<a href="javascript:void(0);" class="icon" onclick="myFunction()">
-	    	<i class="fa fa-bars"></i>
-        	</a>
-    	</nav>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
+</nav>
 
 {% block content %}
 
