@@ -9,6 +9,7 @@
     <p id="greeting">
         {%  trans "Hi visitor!" %}
     </p>
+    <a class="btn" href="{% url "orderByUser" %}">{%  trans "Sort by User" %}</a>
     {% if messages %}
         <ul class="messages">
             {% for message in messages %}

@@ -14,9 +14,6 @@
                 {{ field }}
             </p>
         {% endfor %}
-        <select name="author" id="id_author">
-          <option value="{{ user.pk }}" selected="">{{ user }}</option>
-        </select>
         <button type="submit" value="Save">{%  trans "Submit" %}</button>
     </form>
     {% endif %}

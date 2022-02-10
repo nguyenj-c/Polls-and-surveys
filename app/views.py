@@ -1,3 +1,4 @@
+from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -10,7 +11,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, FormView, DeleteView
-
 from app.forms.login import LoginForm, RegisterForm
 from app.models import Poll
 
@@ -29,7 +29,7 @@ class PollsCreateView(LoginRequiredMixin, CreateView):
     template_name = "poll_create.html"
     model = Poll
     exclude = ['author']
-    fields = ('Question', 'option_1', 'option_2', 'option_3', 'option_4', 'author')
+    fields = ('Question', 'option_1', 'option_2', 'option_3', 'option_4')
     success_url = reverse_lazy('poll_list')
 
     def get_context_data(self, **kwargs):
@@ -37,24 +37,11 @@ class PollsCreateView(LoginRequiredMixin, CreateView):
         result['title'] = 'Create poll'
         return result
 
-
-def create(self):
-    poll = Poll.objects.get(pk=self.POST['admin'])
-
-    if self.method == 'POST':
-        selected_option = self.POST['poll']
-    if selected_option == 'option1':
-        poll.option_1_count += 1
-    elif selected_option == 'option2':
-        poll.option_2_count += 1
-    elif selected_option == 'option3':
-        poll.option_3_count += 1
-    elif selected_option == 'option4':
-        poll.option_4_count += 1
-    else:
-        return "Not valid"
-    poll.save()
-    return redirect('/index')
+    def form_valid(self, form):
+        poll = form.save(commit=False)
+        poll.author = self.request.user
+        poll.save()
+        return super().form_valid(form)
 
 
 def current_user(self):
@@ -69,9 +56,35 @@ class PollsListView(LoginRequiredMixin, ListView):
         result = super().get_context_data(**kwargs)
         result['title'] = 'List of poll'
         result["polls"] = Poll.objects.filter(
-            author__username= current_user(self)
+            author__username=current_user(self)
         )
         return result
+
+
+class PollsListByUserView(ListView):
+    template_name = "poll_orderBy_user.html"
+    model = Poll
+
+    def get_context_data(self, **kwargs):
+        result = super().get_context_data(**kwargs)
+        result['title'] = 'List of poll'
+        result["authors"] = User.objects.all()
+        result["pollsByAuthor"] = Poll.objects.all().order_by("author__username")
+        return result
+
+
+class SearchView(ListView):
+    template_name = "poll_search.html"
+    model = Poll
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        data = super(SearchView, self).get_context_data(**kwargs)
+        data["categories"] = User.objects.all().order_by("name")
+        data["search"] = self.kwargs["search"]
+        return data
+
+    def get_queryset(self):
+        return Poll.objects.filter(author__username=self.kwargs["author"]).all()
 
 
 class PollsDetailView(DetailView):
@@ -160,26 +173,26 @@ class RegisterFormView(FormView):
     success_url = "index"
 
     def form_valid(self, form):
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
-            confirm_password = form.cleaned_data["confirm_password"]
+        username = form.cleaned_data['username']
+        password = form.cleaned_data['password']
+        confirm_password = form.cleaned_data["confirm_password"]
 
-            if password != confirm_password:
-                form.add_error('confirm_password', "Password does not match")
-                return super().form_invalid(form)
-
-            duplicate_users = User.objects.filter(username=username)
-            if duplicate_users.exists():
-                form.add_error('username', "This username is already registered!")
-                return super().form_invalid(form)
-            user = User.objects.create_user(username=username, password=password)
-            if user is not None:
-                login(self.request, user)
-                return super().form_valid(form)
+        if password != confirm_password:
+            form.add_error('confirm_password', "Password does not match")
             return super().form_invalid(form)
 
+        duplicate_users = User.objects.filter(username=username)
+        if duplicate_users.exists():
+            form.add_error('username', "This username is already registered!")
+            return super().form_invalid(form)
+        user = User.objects.create_user(username=username, password=password)
+        if user is not None:
+            login(self.request, user)
+            return super().form_valid(form)
+        return super().form_invalid(form)
 
-class LogoutView(TemplateView):
+
+class LogoutView(SuccessMessageMixin, TemplateView):
     def get(self, request, **kwargs):
         logout(request)
-        return redirect("/index")
+        return redirect("/")
