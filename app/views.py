@@ -124,7 +124,7 @@ class PollDeleteView(LoginRequiredMixin, DeleteView):
     success_url = "/index"
 
 
-class PollVoteView(DeleteView):
+class PollVoteView(DetailView):
     template_name = "poll_vote.html"
     model = Poll
     success_url = "/index"
